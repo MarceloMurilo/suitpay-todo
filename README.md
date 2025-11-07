@@ -3,6 +3,8 @@
 Aplicativo de lista de tarefas com visual inspirado em cadernos manuscritos, desenvolvido em React Native para o teste técnico da SuitPay.
 
 > **Status**: ✅ Projeto Completo - Todas as funcionalidades obrigatórias e diferenciais implementados
+> 
+> **Repositório**: https://github.com/MarceloMurilo/suitpay-todo
 
 ## ✨ Funcionalidades Implementadas
 
@@ -72,8 +74,8 @@ Aplicativo de lista de tarefas com visual inspirado em cadernos manuscritos, des
 
 ```bash
 # Clonar o repositório
-git clone <url-do-repositorio>
-cd SuitPayTodo
+git clone https://github.com/MarceloMurilo/suitpay-todo.git
+cd suitpay-todo
 
 # Instalar dependências
 npm install
@@ -231,6 +233,8 @@ cd android && ./gradlew clean && cd ..
 - Refinamentos e otimizações: 1-2h
 
 ## 👨‍💻 Desenvolvedor
+
+**Marcelo Murilo Dantas**
 
 Desenvolvido com ❤️ como parte do teste técnico para SuitPay.
 
