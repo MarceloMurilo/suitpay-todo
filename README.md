@@ -1,97 +1,239 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📓 Caderno de Tarefas
 
-# Getting Started
+Aplicativo de lista de tarefas com visual inspirado em cadernos manuscritos, desenvolvido em React Native para o teste técnico da SuitPay.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+> **Status**: ✅ Projeto Completo - Todas as funcionalidades obrigatórias e diferenciais implementados
 
-## Step 1: Start Metro
+## ✨ Funcionalidades Implementadas
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 📋 Funcionalidades Obrigatórias
+- ✅ **Listar tarefas** com visual estilo caderno
+- ✅ **Adicionar novas tarefas** (modo rápido: digite + Enter)
+- ✅ **Marcar como concluída** com checkbox animado
+- ✅ **Excluir tarefas** com confirmação
+- ✅ **Contador de tarefas** (Total, Concluídas, Pendentes) - clicáveis para filtrar
+- ✅ **Persistência de dados** com AsyncStorage
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 🎨 Diferenciais Implementados (100%)
+- ✅ **Filtros Completos**: 
+  - Todas/Ativas/Concluídas (post-its clicáveis)
+  - Por Categoria (incluindo personalizadas)
+  - Por Prioridade
+  - Modal unificado de busca e filtros
+- ✅ **Edição de Tarefas**: 
+  - Clique no título para ver detalhes completos
+  - Modal de edição com título, descrição, categoria e prioridade
+- ✅ **Categorias Personalizáveis**: 
+  - Crie categorias com emoji e nome
+  - Gerenciador completo no menu lateral
+  - Categorias opcionais (tarefas podem não ter categoria)
+- ✅ **Sistema de Prioridades**: 
+  - Alta (vermelho), Média (laranja), Baixa (verde)
+  - Opcional - tarefas podem não ter prioridade
+- ✅ **Busca Inteligente**: 
+  - Busca por título com filtros integrados
+  - Modal deslizante de baixo para cima
+- ✅ **Animações Suaves**: 
+  - Checkboxes com spring animation
+  - Fade out ao deletar
+  - Transições entre modais
+- ✅ **Dark Mode**: 
+  - Modo claro (papel off-white)
+  - Modo escuro estilo Moleskine
+  - Toggle minimalista sol/lua
+  - Contraste otimizado
 
-```sh
-# Using npm
-npm start
+### 🚀 Recursos Extras
+- 📝 **Descrição opcional** nas tarefas
+- ➕ **Adição rápida**: Digite e pressione Enter
+- ⚙️ **Adição avançada**: Clique no + sem texto para abrir opções completas
+- 🍔 **Menu lateral** deslizante da direita
+- 🎯 **Interface minimalista** e intuitiva
+- 📱 **100% Responsivo** e otimizado
 
-# OR using Yarn
-yarn start
+### 🎯 Design Único - Estilo Caderno Manuscrito
+- 📝 Fundo de papel pautado com linhas horizontais
+- ✏️ Checkboxes desenhados à mão com animações
+- 📌 Post-its coloridos para filtros e contadores
+- 🌓 Alternador de tema minimalista (sol/lua)
+- 🎨 Paleta de cores inspirada em materiais de papelaria
+- 📦 Cards com separação visual clara entre tarefas
+- 🖊️ Tipografia e elementos visuais estilo manuscrito
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+- Node.js (v16 ou superior)
+- React Native CLI
+- Android Studio (para Android) ou Xcode (para iOS)
+- JDK 11 ou superior
+
+### Instalação
+
+```bash
+# Clonar o repositório
+git clone <url-do-repositorio>
+cd SuitPayTodo
+
+# Instalar dependências
+npm install
+
+# Instalar pods (apenas iOS)
+cd ios && pod install && cd ..
+
+# Executar no Android
+npx react-native run-android
+
+# Executar no iOS
+npx react-native run-ios
 ```
 
-## Step 2: Build and run your app
+## 🛠️ Tecnologias Utilizadas
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- **React Native** (CLI)
+- **TypeScript** para tipagem estática
+- **AsyncStorage** para persistência local
+- **Context API** para gerenciamento de estado global
+- **React Hooks** (useState, useEffect, useContext, useRef)
+- **React Native SVG** para checkboxes desenhados à mão
+- **Animated API** para animações suaves
 
-### Android
+## 📁 Estrutura do Projeto
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```
+src/
+├── components/                      # Componentes reutilizáveis
+│   ├── add-task-modal.tsx          # Modal de adição avançada
+│   ├── category-filter.tsx         # Filtro de categorias
+│   ├── category-manager-modal.tsx  # Gerenciador de categorias
+│   ├── hand-drawn-checkbox.tsx     # Checkbox animado
+│   ├── handwritten-text.tsx        # Texto estilo manuscrito
+│   ├── notebook-background.tsx     # Papel pautado com linhas
+│   ├── notebook-task-item.tsx      # Card de tarefa
+│   ├── post-it-button.tsx          # Botões estilo post-it
+│   ├── priority-filter.tsx         # Filtro de prioridades
+│   ├── quick-add-task.tsx          # Input de adição rápida
+│   ├── search-modal.tsx            # Modal de busca e filtros
+│   ├── sidebar-menu.tsx            # Menu lateral (hamburger)
+│   ├── task-details-modal.tsx      # Modal de detalhes/edição
+│   ├── task-list.tsx               # Lista de tarefas
+│   └── theme-toggle.tsx            # Toggle sol/lua
+├── context/                        # Gerenciamento de estado
+│   ├── tasks-context.tsx           # Estado global de tarefas
+│   └── theme-context.tsx           # Estado do tema
+├── screens/                        # Telas
+│   └── home-screen.tsx             # Tela principal
+├── services/                       # Serviços externos
+│   └── storage-service.ts          # AsyncStorage wrapper
+├── styles/                         # Estilos globais
+│   └── notebook-colors.ts          # Paleta de cores caderno
+├── types/                          # Tipos TypeScript
+│   └── task.ts                     # Interfaces e tipos
+└── utils/                          # Utilitários
+    └── date-utils.ts               # Formatação de datas
 ```
 
-### iOS
+## 🎨 Funcionalidades de Design
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Gerenciamento de Categorias
+- Adicione categorias personalizadas com emojis
+- Escolha entre 14 emojis diferentes
+- Edite e remova categorias conforme necessário
+- Categorias padrão: Trabalho, Pessoal, Compras, Saúde, Outros
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### Modo Escuro Premium
+- Fundo estilo Moleskine (preto suave)
+- Post-its em cores pastel para melhor legibilidade
+- Contraste otimizado para leitura noturna
+- Alternância suave entre temas
 
-```sh
-bundle install
+### Animações
+- Checkboxes com animação spring ao marcar/desmarcar
+- Fade out suave ao deletar tarefas
+- Transições fluidas entre estados
+
+## 🎯 Destaques de UX/UI
+
+### Interface Intuitiva
+- **Adição Rápida**: Digite e pressione Enter - pronto!
+- **Adição Avançada**: Clique no + vazio para abrir opções completas
+- **Filtros Clicáveis**: Post-its de contadores funcionam como filtros
+- **Detalhes ao Toque**: Clique no título da tarefa para ver/editar tudo
+- **Menu Lateral**: Hamburger no canto direito com todas as configurações
+
+### Visual Caderno Autêntico
+- **Modo Claro**: Papel off-white, linhas pautadas, post-its vibrantes
+- **Modo Escuro**: Papel preto Moleskine, post-its pastel, margem couro
+- **Checkboxes Desenhados**: Animação spring ao marcar/desmarcar
+- **Tipografia**: Fonte serif elegante para títulos
+
+### Flexibilidade
+- Categorias e prioridades são **opcionais**
+- Tarefas podem ser simples (só título) ou completas (com descrição, categoria, prioridade)
+- Filtros combinam busca + categoria + prioridade em um só lugar
+
+## 🔧 Solução de Problemas
+
+### O app não inicia
+```bash
+# Limpar cache
+cd android && ./gradlew clean && cd ..
+npx react-native start --reset-cache
+
+# Em outro terminal
+npx react-native run-android
 ```
 
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
+### Erros de build no Android
+```bash
+cd android
+./gradlew clean
+cd ..
+npx react-native run-android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+### Problemas com SVG
+```bash
+npm install react-native-svg
+cd android && ./gradlew clean && cd ..
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 💪 Desafios e Soluções
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Desafio 1: Categorias Personalizadas com Persistência
+**Problema**: Gerenciar categorias dinâmicas junto com as tarefas
+**Solução**: Implementei um sistema separado de categorias no Context API com AsyncStorage próprio, permitindo CRUD completo
 
-## Step 3: Modify your app
+### Desafio 2: Categorias e Prioridades Opcionais
+**Problema**: TypeScript exigia category e priority obrigatórios
+**Solução**: Mudei para `category?` e `priority?` opcionais, adaptando todos os componentes para renderizar condicionalmente
 
-Now that you have successfully run the app, let's make changes!
+### Desafio 3: UI/UX Intuitiva
+**Problema**: Muitos botões e opções deixavam a interface confusa
+**Solução**: 
+- Integrei contadores com filtros (post-its clicáveis)
+- Uni busca + filtros em um modal
+- Botão + com dupla função (rápido/avançado)
+- Menu lateral para configurações
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Desafio 4: Dark Mode com Contraste
+**Problema**: Textos ficavam ilegíveis no modo escuro
+**Solução**: Implementei paleta Tailwind com cores específicas para cada modo, garantindo contraste WCAG
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## ⏱️ Tempo de Desenvolvimento
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+**Tempo Total**: ~6-8 horas
 
-## Congratulations! :tada:
+- Configuração inicial e estrutura: 1h
+- Funcionalidades obrigatórias: 2h
+- Diferenciais (filtros, categorias, prioridades): 2h
+- UI/UX estilo caderno: 2h
+- Refinamentos e otimizações: 1-2h
 
-You've successfully run and modified your React Native App. :partying_face:
+## 👨‍💻 Desenvolvedor
 
-### Now what?
+Desenvolvido com ❤️ como parte do teste técnico para SuitPay.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 📄 Licença
 
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Este projeto foi desenvolvido para fins de avaliação técnica.
